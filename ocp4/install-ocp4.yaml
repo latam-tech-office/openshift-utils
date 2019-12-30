@@ -20,6 +20,8 @@
          - buildah
     go_language: { url: "https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz", filename: "golang.tar.gz" }
     go_workspace: "/root/go_workspace"
+    azure_functions_version: "2.7.2045"
+    azure_functions_cli: { url: "https://github.com/Azure/azure-functions-core-tools/releases/download/{{ azure_functions_version }}/Azure.Functions.Cli.linux-x64.{{ azure_functions_version}}.zip", filename: "azure_functions_cli.zip" }
   tasks:
      - name: "Setting a default guid in case is missing"
        set_fact: guid="maltron"
@@ -54,6 +56,7 @@
            - "{{ openshift_install }}"
            - "{{ openshift_client }}"
            - "{{ go_language }}"
+           - "{{ azure_functions_cli }}"
 
      - name: "Unarchiving files: {{ aws_client.filename }}, {{ openshift_install.filename }}, {{ openshift_client.filename }}"
        unarchive: src={{ item.filename }} dest=.
@@ -121,5 +124,6 @@
            - "{{ openshift_install.filename }}"
            - "{{ openshift_client.filename }}"
            - "{{ go_language.filename }}"
+           - "{{ azure_functions_cli.filename }}"
 
      - debug: msg="openshift-install create cluster --dir /root/cluster-{{ guid }} --log-level=debug"
