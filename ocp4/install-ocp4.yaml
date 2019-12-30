@@ -18,7 +18,7 @@
          - docker
          - podman
          - buildah
-    go_language: { url: "https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz", filename: "golang.tar.gz" }
+    go_language: { url: "https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz", filename: "golang.tar.gz" }
     go_workspace: "/root/go_workspace"
   tasks:
      - name: "Setting a default guid in case is missing"
