@@ -8,7 +8,7 @@
     guid: "{{ ansible_env.HOSTNAME.split('.')[1] }}"
     aws_region: "us-east-2"
     aws_client: { url: "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip", filename: "awscli-bundle.zip" }
-    openshift_version: "4.2.12"
+    openshift_version: "4.3.0"
     openshift_install: { url: "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux-{{ openshift_version }}.tar.gz", filename: "openshift-install.tar.gz" }
     openshift_client: { url: "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-{{ openshift_version }}.tar.gz", filename: "openshift-client.tar.gz" }
     operator_version: "v0.13.0"
@@ -18,9 +18,9 @@
          - docker
          - podman
          - buildah
-    go_language: { url: "https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz", filename: "golang.tar.gz" }
+    go_language: { url: "https://dl.google.com/go/go1.13.7.linux-amd64.tar.gz", filename: "golang.tar.gz" }
     go_workspace: "/root/go_workspace"
-    azure_functions_version: "2.7.2045"
+    azure_functions_version: "2.7.2100"
     azure_functions_cli: { url: "https://github.com/Azure/azure-functions-core-tools/releases/download/{{ azure_functions_version }}/Azure.Functions.Cli.linux-x64.{{ azure_functions_version}}.zip", filename: "azure_functions_cli.zip" }
   tasks:
      - name: "Setting a default guid in case is missing"
